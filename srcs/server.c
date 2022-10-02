@@ -6,49 +6,22 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:14:10 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/09/17 16:03:56 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/10/01 06:45:21 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk_lib.h"
 
-void	join(char **msg, int bit)
-{
-	if (bit == SIGUSR1)
-		*msg = ft_strjoin((*msg), "0");
-	else if (bit == SIGUSR2)
-		*msg = ft_strjoin((*msg), "1");
-}
-
-void	handler(int signum)
-{
-	static char	*msg;
-	char	*c;
-
-	c = NULL;
-	if (!msg)
-		msg = NULL;
-	if(ft_strlen(msg) < 8)
-	{
-		join(&msg, signum);
-		usleep(200);
-	}
-	if (ft_strlen(msg) == 8)
-	{
-		ft_printf("%d", itoa2_from_char(msg));
-		free(msg);
-		msg = NULL;
-	}
-}
-
 int	main(void)
 {
-	pid_t		PID;
+	pid_t				pid;
 	struct sigaction	act;
 
-	PID = getpid();
-	ft_printf("%d\n", PID);
-	act.sa_handler = &handler;
+	pid = getpid();
+	ft_printf("%d\n", pid);
+	sigemptyset(&act.sa_mask);
+	act.sa_sigaction = &handler_server;
+	act.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &act, NULL);
 	sigaction(SIGUSR2, &act, NULL);
 	while (1)

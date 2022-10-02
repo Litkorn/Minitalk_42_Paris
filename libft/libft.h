@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:26:17 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/09/17 15:43:56 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/10/01 04:55:39 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef long long unsigned int	t_llui;
 //atoi_itoa.c
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n, char *base);
-int		itoa2_from_char(char *to_convert);
 
 //calloc_bzero.c
 void	*ft_calloc(size_t count, size_t size);

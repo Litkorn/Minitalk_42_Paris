@@ -6,7 +6,7 @@
 #    By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/15 07:32:29 by cleibeng          #+#    #+#              #
-#    Updated: 2022/09/17 14:57:18 by cleibeng         ###   ########.fr        #
+#    Updated: 2022/10/01 07:01:56 by cleibeng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,10 @@ SERVER = server
 
 CLIENT = client
 
-SRCS_SERV = srcs/server.c
-SRCS_CLIENT = srcs/client.c
+SRCS_SERV = srcs/server.c\
+			srcs/utils_server.c
+SRCS_CLIENT = srcs/client.c\
+			  srcs/utils_client.c
 
 OBJS_SERV = ${SRCS_SERV:.c=.o}
 OBJS_CLIENT = ${SRCS_CLIENT:.c=.o}
@@ -38,10 +40,10 @@ all:${SERVER} ${CLIENT}
 	${CC} ${CFLAGS} ${INCLUDE} -O0 -c $< -o $@
 
 ${SERVER} : ${LIBFT} ${OBJS_SERV}
-	${CC} -g ${OBJS_SERV} -o ${SERVER} -Llibft -lft
+	${CC} ${OBJS_SERV} -o ${SERVER} -g3 -Llibft -lft
 
 ${CLIENT} : ${LIBFT} ${OBJS_CLIENT}
-	${CC} -g ${OBJS_CLIENT} -o ${CLIENT} -Llibft -lft
+	${CC} ${OBJS_CLIENT} -o ${CLIENT} -g3 -Llibft -lft
 
 ${LIBFT}:
 	make -C libft
@@ -59,7 +61,7 @@ re:	fclean
 	make all
 
 norminette:
-	@norminette utils
+	@norminette srcs
 	@norminette libft
 
 -include ${DEP}

@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:16:08 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/09/15 07:25:32 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/28 02:31:22 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ static int	count_malloc(int n, int base)
 
 char	*ft_itoa(int n, char *base)
 {
-	char			*str;
-	int				len_str;
-	int				base_len;
-	int				m;
+	char	*str;
+	int		len_str;
+	int		base_len;
+	int		m;
 
 	base_len = ft_strlen(base);
 	len_str = count_malloc(n, base_len);

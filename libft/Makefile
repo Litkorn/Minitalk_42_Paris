@@ -6,7 +6,7 @@
 #    By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 15:36:12 by cleibeng          #+#    #+#              #
-#    Updated: 2022/09/17 15:45:05 by cleibeng         ###   ########.fr        #
+#    Updated: 2022/10/01 04:55:27 by cleibeng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,7 @@ SRCS = ft_atoi_itoa.c\
 	   ft_printf_putnbr.c\
 	   ft_printf_err.c\
 	   ft_printf_err_putstrchar.c\
-	   ft_printf_err_putnbr.c\
-	   itoa_from_char.c
+	   ft_printf_err_putnbr.c
 
 OBJS = ${SRCS:.c=.o}
 
